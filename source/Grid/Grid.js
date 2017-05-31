@@ -51,7 +51,7 @@ export default class Grid extends PureComponent {
      */
     autoWidth: PropTypes.bool,
 
-    backgroundRenderer: PropTypes.node,
+    backgroundRenderer: PropTypes.func,
 
     /**
      * Responsible for rendering a cell given an row and column index.
