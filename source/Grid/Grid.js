@@ -51,6 +51,8 @@ export default class Grid extends PureComponent {
      */
     autoWidth: PropTypes.bool,
 
+    backgroundRenderer: PropTypes.node,
+
     /**
      * Responsible for rendering a cell given an row and column index.
      * Should implement the following interface: ({ columnIndex: number, rowIndex: number }): PropTypes.node
@@ -111,10 +113,6 @@ export default class Grid extends PureComponent {
      * The estimated total height is adjusted as rows are rendered.
      */
     estimatedRowSize: PropTypes.number.isRequired,
-
-    extraChild: PropTypes.node,
-
-    extraContainerChild: PropTypes.node,
 
     /**
      * Exposed for testing purposes only.
@@ -701,10 +699,9 @@ export default class Grid extends PureComponent {
       autoContainerWidth,
       autoHeight,
       autoWidth,
+      backgroundRenderer,
       className,
       containerStyle,
-      extraChild,
-      extraContainerChild,
       height,
       id,
       noContentRenderer,
@@ -769,7 +766,10 @@ export default class Grid extends PureComponent {
         }}
         tabIndex={tabIndex}
       >
-        {extraChild}
+        {backgroundRenderer({
+          height: Math.max(height, totalRowsHeight),
+          width: Math.max(width, totalColumnsWidth)
+        })}
         {childrenToDisplay.length > 0 &&
           <div
             className='ReactVirtualized__Grid__innerScrollContainer'
@@ -784,7 +784,6 @@ export default class Grid extends PureComponent {
               ...containerStyle
             }}
           >
-            {extraContainerChild}
             {childrenToDisplay}
           </div>
         }
