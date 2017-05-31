@@ -766,6 +766,7 @@ export default class Grid extends PureComponent {
         }}
         tabIndex={tabIndex}
       >
+        {extraChild}
         {childrenToDisplay.length > 0 &&
           <div
             className='ReactVirtualized__Grid__innerScrollContainer'
@@ -786,7 +787,6 @@ export default class Grid extends PureComponent {
         {showNoContentRenderer &&
           noContentRenderer()
         }
-        {extraChild}
       </div>
     )
   }
