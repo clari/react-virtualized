@@ -112,6 +112,8 @@ export default class Grid extends PureComponent {
      */
     estimatedRowSize: PropTypes.number.isRequired,
 
+    extraChild: PropTypes.node,
+
     /**
      * Exposed for testing purposes only.
      */
@@ -699,6 +701,7 @@ export default class Grid extends PureComponent {
       autoWidth,
       className,
       containerStyle,
+      extraChild,
       height,
       id,
       noContentRenderer,
@@ -783,6 +786,7 @@ export default class Grid extends PureComponent {
         {showNoContentRenderer &&
           noContentRenderer()
         }
+        {extraChild}
       </div>
     )
   }
