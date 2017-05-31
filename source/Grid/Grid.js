@@ -114,6 +114,8 @@ export default class Grid extends PureComponent {
 
     extraChild: PropTypes.node,
 
+    extraContainerChild: PropTypes.node,
+
     /**
      * Exposed for testing purposes only.
      */
@@ -702,6 +704,7 @@ export default class Grid extends PureComponent {
       className,
       containerStyle,
       extraChild,
+      extraContainerChild,
       height,
       id,
       noContentRenderer,
@@ -781,6 +784,7 @@ export default class Grid extends PureComponent {
               ...containerStyle
             }}
           >
+            {extraContainerChild}
             {childrenToDisplay}
           </div>
         }
