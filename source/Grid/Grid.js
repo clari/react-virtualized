@@ -234,6 +234,7 @@ export default class Grid extends PureComponent {
 
   static defaultProps = {
     'aria-label': 'grid',
+    backgroundRenderer: () => null,
     cellRangeRenderer: defaultCellRangeRenderer,
     estimatedColumnSize: 100,
     estimatedRowSize: 30,
